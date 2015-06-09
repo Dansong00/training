@@ -4,26 +4,26 @@
 		<script>
 			/* make util code here! */
 
-			var make = {};
+		function ElementFactory(){
+ 				this.createElement = function(elementType){
+   					return document.createElement(elementType);
+ 			};
+		};
+          
+		/* end make util code */
 
-			make.h1 = function() {
-				return document.createElement('h1');
-			};
+		var factory = new ElementFactory();
 
-			make.a = function() {
-				return document.createElement('a');
-			};
+		var a = factory.createElement('a');
+		var h1 = factory.createElement('h1');
 
-			/* end make util code */
+		h1.innerHTML = 'Hello World';
+		document.body.appendChild(h1);
 
-			var h1 = make.h1();
-			h1.innerHTML = 'Hello World';
-			document.body.appendChild(h1);
-
-			var a = make.a();
-			a.href= 'http://canjs.com';
-			a.innerHTML = 'CanJS';
-			document.body.appendChild(a);
+		a.href= 'http://canjs.com';
+		a.innerHTML = 'CanJS';
+		document.body.appendChild(a);
 		</script>
 	</body>
 </html>
+
